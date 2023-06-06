@@ -8,7 +8,10 @@
 .thumb
 .global delay
 delay:
-        add    r5, #1
+       
+        add     r5, #1
+        and     r5, r5, #3
+        
         ldr     r0, =EXTI_BASE
         ldr     r1, [r0, EXTI_PR_OFFSET]
         orr     r1, r1, 0x2

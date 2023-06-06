@@ -96,7 +96,7 @@ __main:
         str r0, [r7, #12] @Se almacena el contador
 
         @Set Variable de la velocidad del contador
-        mov r5, #01 @Se carga 1 como la velocidad inicial del contador    registro r5 = velocidad
+        mov r5, #0 @Se carga 1 como la velocidad inicial del contador    registro r5 = velocidad
 
         @Set Variable de la direccion del contador (positivo-negativo)
         mov r6, #0 @Se carga 0 en la variable (positivo, si el valor es par la  cuenta sera positiva, de lo contrario decresera)
@@ -134,7 +134,7 @@ loop:
         str r1, [r0] @Se pasa el valor para los pines del pin 2 - 11           LED 0 - 10  
 
 
-        cmp r5, #1  @Se compara para verificar la velocidad
+        cmp r5, #0  @Se compara para verificar la velocidad
         beq .L5
         b .L6
 
@@ -143,7 +143,7 @@ loop:
         b wait
 
 .L6:
-        cmp r5, #2
+        cmp r5, #1
         beq .L7
         b .L8
 
@@ -152,7 +152,7 @@ loop:
         b wait
 
 .L8:
-        cmp r5, #3
+        cmp r5, #2
         beq .L9
         b .L10
 
@@ -161,20 +161,16 @@ loop:
         b wait
 
 .L10:
-        cmp r5, #4
+        cmp r5, #3
         beq .L11
-        b .L12
+        b wait
 
 .L11:
         mov r8, 0x50000
-        b wait
 
-.L12:
-        mov r5, #1
-        mov r8, 0x280000
 
 wait:
-        mov r0, 0
+        mov r0, #0
         waitLoop:
         add r0, r0, #1            @Delay para detener los ciclos del reloj
         cmp r0, r8

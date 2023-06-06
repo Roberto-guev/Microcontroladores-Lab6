@@ -12,7 +12,7 @@ exti_isr:
 @Prologo
        
 
-        add r6, #1 @Se aumenta en 1 el contador
+        add     r6, #1 @Se aumenta en 1 el contador
         ldr     r0, =EXTI_BASE
         ldr     r1, [r0, EXTI_PR_OFFSET]
         orr     r1, r1, 0x1
