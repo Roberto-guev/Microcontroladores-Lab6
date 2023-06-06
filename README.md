@@ -18,3 +18,5 @@ Esta subrutina al igual que la anterior es una interrupcion externa del sistema 
 
 
 Diagrama del sistema: 
+![image](https://github.com/Roberto-guev/Microcontroladores-Lab6/assets/124948069/3687fac2-1a37-42d1-9653-53de29916029)
+
